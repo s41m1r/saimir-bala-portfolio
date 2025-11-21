@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Saimir Bala - Research Associate, HU Berlin</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for background and font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        
+        :root {
+            --color-primary: #851b22; /* Deep WU Vienna/Academic Red */
+            --color-secondary: #0a3d62; /* Humboldt Blue/Dark Accent */
+            --color-background: #fdfdfe; /* Off-White/Clean Background */
+            --color-text: #1f2937; /* Dark Gray */
+            --color-border: #e2e8f0; /* Light Border */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.7;
+        }
+
+        .section-header {
+            border-bottom: 3px solid var(--color-primary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 2rem; /* text-4xl */
+            font-weight: 800; /* font-extrabold */
+            color: var(--color-secondary);
+        }
+
+        /* Publication list style */
+        .publication-item {
+            padding: 1rem;
+            border-radius: 0.75rem;
+            transition: all 0.3s ease;
+            background-color: white;
+            border: 1px solid var(--color-border);
+        }
+        .publication-item:hover {
+            box-shadow: 0 4px 15px rgba(133, 27, 34, 0.1); /* Subtle shadow on hover */
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+        
+        /* Link styling for professional look */
+        .pro-link {
+            color: var(--color-secondary);
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .pro-link:hover {
+            color: var(--color-primary);
+            text-decoration: underline;
+        }
+    </style>
+    <!-- Lucide Icons (Used as placeholders) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: 'var(--color-primary)',
+                        secondary: 'var(--color-secondary)',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="pt-16">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-lg z-50 border-b-4 border-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <div class="flex items-center">
+                <a href="#home" class="text-2xl font-extrabold text-secondary">Dr. Saimir Bala</a>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#research" class="text-gray-600 hover:text-primary transition duration-150 font-medium">Research</a>
+                <a href="#publications" class="text-gray-600 hover:text-primary transition duration-150 font-medium">Publications</a>
+                <a href="#teaching" class="text-gray-600 hover:text-primary transition duration-150 font-medium">Teaching</a>
+                <a href="#service" class="text-gray-600 hover:text-primary transition duration-150 font-medium">Service</a>
+                <a href="#contact" class="text-gray-600 hover:text-primary transition duration-150 font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- 1. HOME/PROFILE SECTION -->
+        <section id="home" class="pt-8 pb-16 md:flex md:items-start md:space-x-12 bg-white p-8 rounded-xl shadow-2xl">
+            <!-- Profile Photo & Info (Left Column on Desktop) -->
+            <div class="md:w-1/4 flex flex-col items-center md:items-start mb-8 md:mb-0">
+                <!-- Placeholder Image (1:1 ratio, rounded) -->
+                <img class="w-48 h-48 rounded-full object-cover shadow-xl border-4 border-primary mb-5" 
+                     src="https://placehold.co/200x200/0a3d62/fdfdfe?text=Saimir+Bala" 
+                     alt="Dr. Saimir Bala Profile Photo">
+                <h1 class="text-4xl font-extrabold text-gray-900 mb-1">Dr. Saimir Bala</h1>
+                <p class="text-lg font-semibold text-secondary mb-2 text-center md:text-left">
+                    Research Associate (PostDoc)
+                </p>
+                <p class="text-md text-gray-600 text-center md:text-left">
+                    Process Management and Information Systems Group
+                </p>
+                <p class="text-md text-gray-600 mb-4 text-center md:text-left">
+                    Humboldt-Universität zu Berlin, Germany
+                </p>
+                
+                <!-- Quick Contact and Links -->
+                <div class="w-full space-y-2 text-sm">
+                    <p class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <a href="mailto:saimir.bala@hu-berlin.de" class="pro-link">saimir.bala@hu-berlin.de</a>
+                    </p>
+                    <p class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l-4 4-2-2"></path><circle cx="12" cy="12" r="10"></circle></svg>
+                        <a href="https://www.informatik.hu-berlin.de/en/forschung-en/gebiete/promis-en/team/balasaim" target="_blank" class="pro-link">HU Web Page</a>
+                    </p>
+                    <p class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-9-2-9-5c0-4.5 4-8 9-8s9 3.5 9 8c0 3-4 6.5-9 5l-2.75 3.5v-3.5"></path></svg>
+                        <a href="https://github.com/..." target="_blank" class="pro-link">GitHub (Placeholder)</a>
+                    </p>
+                    <a href="Application-BALA-JobID2602.pdf" target="_blank" class="mt-4 px-6 py-2 text-sm text-white font-medium rounded-lg shadow-md hover:shadow-lg flex items-center justify-center bg-primary hover:bg-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 12 11 14 9"></polyline></svg>
+                        View CV (PDF)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Short Bio/Summary (Right Column on Desktop) -->
+            <div class="md:w-3/4">
+                <h2 class="section-header !text-3xl border-secondary">Bio and Research Profile</h2>
+                <p class="mb-4 text-gray-700">I am a Research Associate (PostDoc) at **Humboldt-Universität zu Berlin** and a WU PhD alumnus. My research lies at the crucial intersection of **Process Mining, Business Analytics, and Software Engineering**. I focus on developing methods that extract actionable, data-driven insights from complex process and behavioral data generated by software-intensive systems, bridging the gap between theoretical ML advances and real-world business decision challenges.</p>
+                <p class="mb-4 text-gray-700">My experience spans international collaborations (e.g., WU Vienna, Weizenbaum-Institut, SAP Signavio) and substantial industry project involvement (Siemens, SAP Signavio, Phactum Softwareentwicklung). I am committed to advancing predictive and prescriptive analytics to improve system performance, resource allocation, and human decision-making in dynamic environments.</p>
+                <p class="text-gray-700 italic border-l-4 border-primary pl-3 py-1">"My long-term research agenda aims to build an interdisciplinary group focused on predictive and prescriptive analytics for complex business and software processes, bridging data and process science with software engineering."</p>
+            </div>
+        </section>
+
+        <!-- 2. RESEARCH FOCUS SECTION -->
+        <section id="research" class="py-16">
+            <h2 class="section-header">Core Research Areas</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Research Area 1: Machine Learning & Predictive Analytics -->
+                <div class="p-6 rounded-xl bg-primary/5 border-t-4 border-primary shadow-lg hover:shadow-xl transition duration-300">
+                    <h3 class="font-bold text-xl mb-3 text-secondary flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 11a7 7 0 0 0-7 7v2h14v-2a7 7 0 0 0-7-7z"></path><path d="M12 11V3"></path></svg>
+                        Process Mining & Analytics
+                    </h3>
+                    <p class="text-gray-700 text-sm">Developing techniques to analyze semi-structured and object-centric event data (like software repositories) to reveal emergent behavioral patterns, assess quality attributes, and support decision-making in complex systems.</p>
+                </div>
+                <!-- Research Area 2: Prescriptive & Decision Analytics -->
+                <div class="p-6 rounded-xl bg-primary/5 border-t-4 border-primary shadow-lg hover:shadow-xl transition duration-300">
+                    <h3 class="font-bold text-xl mb-3 text-secondary flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        Predictive & Prescriptive Models
+                    </h3>
+                    <p class="text-gray-700 text-sm">Building models for time-series forecasting, improving process outcomes, and deriving recommendations for resource allocation and system performance. Emphasis on empirical validation and interpretability (XAI).</p>
+                </div>
+                <!-- Research Area 3: AI-Augmented Software Engineering -->
+                <div class="p-6 rounded-xl bg-primary/5 border-t-4 border-primary shadow-lg hover:shadow-xl transition duration-300">
+                    <h3 class="font-bold text-xl mb-3 text-secondary flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        Software Engineering
+                    </h3>
+                    <p class="text-gray-700 text-sm">Focus on Lifecycle-Oriented Software Analytics, investigating long-running behaviors like architectural drift, incident response, and technical-debt evolution in multi-actor, continuous software processes.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SELECTED PUBLICATIONS SECTION -->
+        <section id="publications" class="py-16">
+            <h2 class="section-header">Selected Publications (<a href="https://scholar.google.com/citations?user=..." target="_blank" class="pro-link text-lg !font-bold">Google Scholar</a>)</h2>
+            <div class="space-y-5">
+                
+                <!-- Pub J2 (Journal) -->
+                <div class="publication-item">
+                    <p class="text-xs font-bold uppercase text-primary mb-1">Journal Article (J2)</p>
+                    <p class="font-semibold text-lg text-gray-800">Enhancing decision making of IT demand management with process mining.</p>
+                    <p class="text-sm text-gray-600 italic">C. Novak, L. Pfahlsberger, <span class="font-bold">S. Bala</span>, K. Revoredo, J. Mendling. <span class="font-bold">Business Process Management Journal</span>, 29(8), 2023.</p>
+                </div>
+
+                <!-- Pub J3 (Journal) -->
+                <div class="publication-item">
+                    <p class="text-xs font-bold uppercase text-primary mb-1">Journal Article (J3)</p>
+                    <p class="font-semibold text-lg text-gray-800">Software Process Evaluation from User Perceptions and Log Data.</p>
+                    <p class="text-sm text-gray-600 italic">D. Vavpotic, <span class="font-bold">S. Bala</span>, J. Mendling, T. Hovelja. <span class="font-bold">Journal of Software: Evolution and Process</span>, 34(4), 2022.</p>
+                </div>
+                
+                <!-- Pub C5 (Conference - Best Paper Context) -->
+                <div class="publication-item border-l-4 border-yellow-500 bg-yellow-50">
+                    <p class="text-xs font-bold uppercase text-primary mb-1">Conference Proceedings (C5) | Award Context</p>
+                    <p class="font-semibold text-lg text-gray-800">Spotting the Weasel at Work: Mining Inappropriate Behavior Patterns in Event Logs.</p>
+                    <p class="text-sm text-gray-600 italic"><span class="font-bold">S. Bala</span>, T. Jacobowitz, J. Mendling. <span class="font-bold">EDOC Workshops</span>, LNBIP 537, 2024. (In context of EDBA 2024 Best Paper Award)</p>
+                </div>
+                
+                <!-- Pub C24 (Conference - High Impact) -->
+                <div class="publication-item">
+                    <p class="text-xs font-bold uppercase text-primary mb-1">Conference Proceedings (C24)</p>
+                    <p class="font-semibold text-lg text-gray-800">Mining Project-Oriented Business Processes.</p>
+                    <p class="text-sm text-gray-600 italic"><span class="font-bold">S. Bala</span>, C. Cabanillas, J. Mendling, A. Rogge-Solti, A. Polleres. <span class="font-bold">BPM</span>, LNCS 9253, 2015.</p>
+                </div>
+
+                <p class="text-center pt-4 text-gray-600">
+                    See my full CV for a complete list of <span class="font-bold text-secondary">24+ conference/workshop papers</span> and <span class="font-bold text-secondary">3 book chapters</span>.
+                </p>
+            </div>
+        </section>
+        
+        <!-- 4. TEACHING & SERVICE SECTION -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 py-16">
+            
+            <!-- Teaching -->
+            <section id="teaching">
+                <h2 class="section-header">Teaching & Supervision</h2>
+                <div class="space-y-4 text-gray-700">
+                    <p class="font-medium text-gray-800">I am committed to delivering clear, engaging, and rigorous instruction in data analytics, computational methods, and software engineering across all levels (Bachelor, Master, Executive).</p>
+                    
+                    <h3 class="font-semibold text-lg mt-4 text-secondary">Course Experience Highlights:</h3>
+                    <ul class="list-disc list-inside ml-4 space-y-1 text-sm">
+                        <li>**Lead/Instructor:** *Business Process Automation*, *Statistics and Data Science for Information Systems* (HU Berlin).</li>
+                        <li>**Contributor:** Courses in *Process Analytics*, *Process Implementation*, and *Process Innovation* (WU Vienna).</li>
+                        <li>**Executive Education:** Instructor for the Process Mining Module in the Data Science Program (WU Executive MBA Academy).</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-lg mt-4 text-secondary">Supervision:</h3>
+                    <p class="text-sm">Substantial experience supervising numerous Bachelor and Master theses (e.g., *Analyzing File Evolution Trends for Predicting Development Task Completion*, *Visual Analytics of Violations Times in Process Mining*), connecting theoretical concepts with practical, data-driven projects.</p>
+                </div>
+            </section>
+            
+            <!-- Service -->
+            <section id="service">
+                <h2 class="section-header">Academic Service</h2>
+                <div class="space-y-4 text-gray-700">
+                    <p class="font-medium text-gray-800">Active involvement in the international academic community through program committee work, reviewing, and conference organization.</p>
+                    
+                    <h3 class="font-semibold text-lg mt-4 text-secondary">Program Committee (PC) & Reviewing:</h3>
+                    <ul class="list-disc list-inside ml-4 space-y-1 text-sm">
+                        <li>**PC Member (Since 2020/2024):** International Conference on Business Process Management (BPM) and International Conference on Process Mining (ICPM).</li>
+                        <li>**Reviewer for Journals:** *Journal of Software: Evolution and Process*, *Business Process Management Journal*, *Engineering Applications of Artificial Intelligence*, and more.</li>
+                        <li>**PC/Reviewer for Conferences:** MSR, CAISE, ECIS, ICIS.</li>
+                    </ul>
+
+                    <h3 class="font-semibold text-lg mt-4 text-secondary">Organizing Activities:</h3>
+                    <p class="text-sm">Member of the organizing team for major conferences including BPM and ISWC (at WU Vienna).</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- 5. CONTACT SECTION -->
+        <section id="contact" class="py-12 bg-secondary/90 text-white rounded-xl shadow-2xl p-8">
+            <h2 class="text-4xl font-extrabold mb-6 border-b-4 border-white pb-3">Get in Touch</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <div>
+                    <h3 class="font-semibold text-xl mb-3 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        Email & Phone
+                    </h3>
+                    <p class="mb-2"><strong>Work Email:</strong> <a href="mailto:saimir.bala@hu-berlin.de" class="hover:underline">saimir.bala@hu-berlin.de</a></p>
+                    <p class="mb-2"><strong>Private Email:</strong> <a href="mailto:saimir.bala@gmail.com" class="hover:underline">saimir.bala@gmail.com</a></p>
+                    <p><strong>Phone:</strong> +49 30 2093-41270</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-xl mb-3 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2C17 2 13 6 13 11c0 5 4 9 8.5 9s8.5-4 8.5-9c0-5-4-9-8.5-9z"></path></svg>
+                        Office Address
+                    </h3>
+                    <p>Unter den Linden 6</p>
+                    <p>10099 Berlin, Germany</p>
+                    <p class="mt-2">Visiting Researcher (Weizenbaum & SAP Signavio)</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold text-xl mb-3 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-9-2-9-5c0-4.5 4-8 9-8s9 3.5 9 8c0 3-4 6.5-9 5l-2.75 3.5v-3.5"></path></svg>
+                        Online Profiles
+                    </h3>
+                    <div class="space-y-2">
+                        <a href="https://www.informatik.hu-berlin.de/en/forschung-en/gebiete/promis-en/team/balasaim" target="_blank" class="flex items-center hover:underline">
+                            HU Berlin Profile
+                        </a>
+                        <a href="https://github.com/..." target="_blank" class="flex items-center hover:underline">
+                            GitHub (Add your correct URL)
+                        </a>
+                        <a href="https://linkedin.com/in/..." target="_blank" class="flex items-center hover:underline">
+                            LinkedIn (Add your correct URL)
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=..." target="_blank" class="flex items-center hover:underline">
+                            Google Scholar (Add your correct URL)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-gray-500 text-sm">
+            &copy; 2025 Dr. Saimir Bala. Research Portfolio.
+        </footer>
+    </div>
+</body>
+</html>
