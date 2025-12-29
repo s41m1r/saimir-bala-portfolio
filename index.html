@@ -36,11 +36,12 @@
 
         /* Publication list style */
         .publication-item {
-            padding: 1rem;
-            border-radius: 0.75rem;
-            transition: all 0.3s ease;
-            background-color: white;
-            border: 1px solid var(--color-border);
+          padding: 1rem;
+          border-radius: 0.75rem;
+          transition: all 0.3s ease;
+          background-color: white;
+          border: 1px solid var(--color-border);
+          position: relative;
         }
         .publication-item:hover {
             box-shadow: 0 4px 15px rgba(133, 27, 34, 0.1); /* Subtle shadow on hover */
@@ -57,6 +58,49 @@
         .pro-link:hover {
             color: var(--color-primary);
             text-decoration: underline;
+        }
+
+        /* Flexbox container for new section */
+        .flex-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .item {
+            flex: 1;
+            margin: 0 10px;
+        }
+        /* Auto-layout grid: responsive, auto-fit columns */
+        .auto-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          gap: 1.25rem; /* ~gap-5 */
+        }
+        /* Publication index badge */
+        .pub-index {
+            display: inline-block;
+            background: var(--color-primary);
+            color: white;
+            padding: 0.12rem 0.5rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            line-height: 1;
+            margin-left: 0.4rem;
+        }
+        /* Per-item dynamic index number */
+        .pub-number {
+          position: absolute;
+          top: 0.6rem;
+          right: 0.6rem;
+          background: var(--color-secondary);
+          color: white;
+          padding: 0.18rem 0.5rem;
+          border-radius: 0.5rem;
+          font-size: 0.75rem;
+          font-weight: 700;
+          line-height: 1;
         }
     </style>
     <!-- Lucide Icons (Used as placeholders) -->
@@ -125,7 +169,10 @@
                     </p>
                     <p class="flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-9-2-9-5c0-4.5 4-8 9-8s9 3.5 9 8c0 3-4 6.5-9 5l-2.75 3.5v-3.5"></path></svg>
-                        <a href="https://github.com/s41m1r" target="_blank" class="pro-link">GitHub</a>
+                        <a href="https://github.com/s41m1r" target="_blank" class="pro-link flex items-center">
+                          <img src="icons/icons8-github-48.png" alt="GitHub" class="h-5 w-5 mr-2">
+                          <span class="sr-only">GitHub</span>
+                        </a>
                     </p>
                     <a href="BALA-CV.pdf" target="_blank" class="mt-4 px-6 py-2 text-sm text-white font-medium rounded-lg shadow-md hover:shadow-lg flex items-center justify-center bg-primary hover:bg-secondary">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 12 11 14 9"></polyline></svg>
@@ -144,39 +191,76 @@
         </section>
 
         <!-- 2. RESEARCH FOCUS SECTION -->
-        <section id="research" class="py-16">
-            <h2 class="section-header">Core Research Areas</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Research Area 1: Machine Learning & Predictive Analytics -->
-                <div class="p-6 rounded-xl bg-primary/5 border-t-4 border-primary shadow-lg hover:shadow-xl transition duration-300">
-                    <h3 class="font-bold text-xl mb-3 text-secondary flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 11a7 7 0 0 0-7 7v2h14v-2a7 7 0 0 0-7-7z"></path><path d="M12 11V3"></path></svg>
-                        Process Mining & Analytics
-                    </h3>
-                    <p class="text-gray-700 text-sm">Developing techniques to analyze semi-structured and object-centric event data (like software repositories) to reveal emergent behavioral patterns, assess quality attributes, and support decision-making in complex systems.</p>
-                </div>
-                <!-- Research Area 2: Prescriptive & Decision Analytics -->
-                <div class="p-6 rounded-xl bg-primary/5 border-t-4 border-primary shadow-lg hover:shadow-xl transition duration-300">
-                    <h3 class="font-bold text-xl mb-3 text-secondary flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                        Predictive & Prescriptive Models
-                    </h3>
-                    <p class="text-gray-700 text-sm">Building models for time-series forecasting, improving process outcomes, and deriving recommendations for resource allocation and system performance. Emphasis on empirical validation and interpretability (XAI).</p>
-                </div>
-                <!-- Research Area 3: AI-Augmented Software Engineering -->
-                <div class="p-6 rounded-xl bg-primary/5 border-t-4 border-primary shadow-lg hover:shadow-xl transition duration-300">
-                    <h3 class="font-bold text-xl mb-3 text-secondary flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                        Software Engineering
-                    </h3>
-                    <p class="text-gray-700 text-sm">Focus on Lifecycle-Oriented Software Analytics, investigating long-running behaviors like architectural drift, incident response, and technical-debt evolution in multi-actor, continuous software processes.</p>
-                </div>
-            </div>
-        </section>
+<section id="research" class="py-16">
+    <h2 class="section-header">Core Research Areas</h2>
+
+    <div class="auto-grid grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Research Area 1: Business Process Management & Process Mining -->
+        <div class="p-6 rounded-xl bg-primary/5 border-t-4 border-primary shadow-lg hover:shadow-xl transition duration-300">
+            <h3 class="font-bold text-xl mb-3 text-secondary flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-6 w-6 mr-3 text-primary"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2"
+                     stroke-linecap="round"
+                     stroke-linejoin="round">
+                    <path d="M3 3v18h18"></path>
+                    <path d="M7 15l4-4 4 4 4-6"></path>
+                </svg>
+                Business Process Management & Process Mining
+            </h3>
+
+            <p class="text-gray-700 text-sm">
+                Research on modeling, analyzing, and improving business and operational processes,
+                with a strong focus on <span class="font-medium">process mining</span> and
+                <span class="font-medium">object-centric event data</span>.
+                This includes data quality assessment, lifecycle and behavior analysis,
+                fairness and bias in process analytics, and the application of process mining
+                in organizational, educational, and industrial contexts.
+            </p>
+        </div>
+
+        <!-- Research Area 2: Software Engineering -->
+        <div class="p-6 rounded-xl bg-primary/5 border-t-4 border-primary shadow-lg hover:shadow-xl transition duration-300">
+            <h3 class="font-bold text-xl mb-3 text-secondary flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-6 w-6 mr-3 text-primary"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2"
+                     stroke-linecap="round"
+                     stroke-linejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                Software Engineering
+            </h3>
+
+            <p class="text-gray-700 text-sm">
+                Empirical research on software development processes using
+                <span class="font-medium">software repositories and execution logs</span>.
+                Topics include lifecycle-oriented software analytics, mining of development
+                and collaboration processes, project and file completion analysis,
+                process compliance, and the interaction between software engineering practices
+                and organizational processes.
+            </p>
+        </div>
+
+    </div>
+</section>
 
         <!-- 3. SELECTED PUBLICATIONS SECTION -->
         <section id="publications" class="py-16">
-            <h2 class="section-header">Selected Publications (<a href="https://scholar.google.com/citations?user=..." target="_blank" class="pro-link text-lg !font-bold">Google Scholar</a>)</h2>
+            <h2 class="section-header">Selected Publications
+              <a href="https://scholar.google.com/citations?user=..." target="_blank" class="pro-link text-lg !font-bold inline-flex items-center align-middle" aria-label="Google Scholar">
+                <img src="icons/icons8-google-scholar-96.png" alt="Google Scholar" class="h-10 w-10 align-middle">
+                <span class="sr-only">Google Scholar</span>
+              </a>
+            </h2>
             <div class="space-y-5">
                 
                 <!-- Pub J2 (Journal) -->
@@ -195,7 +279,7 @@
                 
                 <!-- Pub C5 (Conference - Best Paper Context) -->
                 <div class="publication-item border-l-4 border-yellow-500 bg-yellow-50">
-                    <p class="text-xs font-bold uppercase text-primary mb-1">Conference Proceedings (C5) | Award Context</p>
+                    <p class="text-xs font-bold uppercase text-primary mb-1">Workshop Proceedings (C5) | Award Context</p>
                     <p class="font-semibold text-lg text-gray-800"><a href="https://link.springer.com/chapter/10.1007/978-3-031-82225-4_23" target="_blank" class="pro-link">A Classification of Data Quality Issues in Object-Centric Event Data</a></p>
                     <p class="text-sm text-gray-600 italic">M. Basmer, Martin Kabierski, Kristina Sahling, Agnieszka Patecka, <span class="font-bold">S. Bala</span>, J. Mendling. <span class="font-bold">ICPM Workshops</span>, LNBIP 533, 2024. (In context of EDBA Workshop 2024 Best Paper Award)</p>
                 </div>
@@ -207,51 +291,523 @@
                     <p class="text-sm text-gray-600 italic"><span class="font-bold">S. Bala</span>, C. Cabanillas, J. Mendling, A. Rogge-Solti, A. Polleres. <span class="font-bold">BPM</span>, LNCS 9253, 2015.</p>
                 </div>
 
-                <p class="text-center pt-4 text-gray-600">
-                    See my full CV for a complete list of <span class="font-bold text-secondary">24+ conference/workshop papers</span> and <span class="font-bold text-secondary">3 book chapters</span>.
-                </p>
+            <!-- Toggle -->
+            <p class="text-center pt-6 text-gray-600">
+                <a href="#full-publications"
+                   id="toggle-publications"
+                   class="font-bold text-secondary hover:underline">
+                See the complete list of publications
+                </a>
+            </p>
             </div>
         </section>
-        
-        <!-- 4. TEACHING & SERVICE SECTION -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 py-16">
-            
-            <!-- Teaching -->
-            <section id="teaching">
-                <h2 class="section-header">Teaching & Supervision</h2>
-                <div class="space-y-4 text-gray-700">
-                    <p class="font-medium text-gray-800">I am committed to delivering clear, engaging, and rigorous instruction in data analytics, computational methods, and software engineering across all levels (Bachelor, Master, Executive).</p>
-                    
-                    <h3 class="font-semibold text-lg mt-4 text-secondary">Course Experience Highlights:</h3>
-                    <ul class="list-disc list-inside ml-4 space-y-1 text-sm">
-                        <li><strong>Lead/Instructor:</strong> Business Process Automation, Statistics and Data Science for Information Systems (HU Berlin).</li>
-                        <li><strong>Contributor:</strong> Courses in Process Analytics, Process Implementation, and Process Innovation (WU Vienna).</li>
-                        <li><strong>Executive Education:</strong> Instructor for the Process Mining Module in the Data Science Program (WU Executive MBA Academy).</li>
-                    </ul>
 
-                    <h3 class="font-semibold text-lg mt-4 text-secondary">Supervision:</h3>
-                    <p class="text-sm">Substantial experience supervising numerous Bachelor and Master theses (e.g., Analyzing File Evolution Trends for Predicting Development Task Completion, Visual Analytics of Violations Times in Process Mining), connecting theoretical concepts with practical, data-driven projects.</p>
-                </div>
-            </section>
-            
-            <!-- Service -->
-            <section id="service">
-                <h2 class="section-header">Academic Service</h2>
-                <div class="space-y-4 text-gray-700">
-                    <p class="font-medium text-gray-800">Active involvement in the international academic community through program committee work, reviewing, and conference organization.</p>
-                    
-                    <h3 class="font-semibold text-lg mt-4 text-secondary">Program Committee (PC) & Reviewing:</h3>
-                    <ul class="list-disc list-inside ml-4 space-y-1 text-sm">
-                        <li><strong>PC Member (Since 2020/2024):</strong> International Conference on Business Process Management (BPM) and International Conference on Process Mining (ICPM).</li>
-                        <li><strong>Reviewer for Journals:</strong> Journal of Software: Evolution and Process,Business Process Management Journal, Engineering Applications of Artificial Intelligence, and more.</li>
-                        <li><strong>PC/Reviewer for Conferences:</strong> MSR, CAISE, ECIS, ICIS.</li>
-                    </ul>
+        <!-- 4. FULL PUBLICATIONS SECTION -->
+<section id="full-publications" class="py-16 hidden">
 
-                    <h3 class="font-semibold text-lg mt-4 text-secondary">Organizing Activities:</h3>
-                    <p class="text-sm">Member of the organizing team for major conferences including BPM and ISWC (at WU Vienna).</p>
-                </div>
-            </section>
-        </div>
+  <h2 class="section-header">Complete Publication List</h2>
+
+  <!-- FILTERS -->
+  <div class="flex flex-wrap gap-3 mb-8">
+    <button class="pub-filter-btn" data-filter="all">All</button>
+    <button class="pub-filter-btn" data-filter="journal">Journals</button>
+    <button class="pub-filter-btn" data-filter="conference">Conferences & Workshops</button>
+    <button class="pub-filter-btn" data-filter="chapter">Book Chapters</button>
+  </div>
+
+  <div class="space-y-5">
+
+    <!-- ================= JOURNAL ARTICLES ================= -->
+
+    <div class="publication-item" data-type="journal">
+      <p class="text-xs font-bold uppercase text-primary mb-1">Journal Article (J1)</p>
+      <p class="font-semibold text-lg text-gray-800">
+        Data quality in object-centric event data: Issues classification and evaluation.
+      </p>
+      <p class="text-sm text-gray-600 italic">
+        M. Kabierski, M. Basmer, A. Patecka, K. Sahling, <span class="font-bold">S. Bala</span>.
+        <span class="font-bold">Under review</span>, 2025.
+      </p>
+    </div>
+
+    <div class="publication-item" data-type="journal">
+      <p class="text-xs font-bold uppercase text-primary mb-1">Journal Article (J2)</p>
+      <p class="font-semibold text-lg text-gray-800">
+        Enhancing decision-making of IT demand management with process mining.
+      </p>
+      <p class="text-sm text-gray-600 italic">
+        C. Novak, L. Pfahlsberger, <span class="font-bold">S. Bala</span>, K. Revoredo, J. Mendling.
+        <span class="font-bold">Business Process Management Journal</span>, 29(8), 2023, pp. 230–259.
+      </p>
+    </div>
+
+    <div class="publication-item" data-type="journal">
+      <p class="text-xs font-bold uppercase text-primary mb-1">Journal Article (J3)</p>
+      <p class="font-semibold text-lg text-gray-800">
+        Software Process Evaluation from User Perceptions and Log Data.
+      </p>
+      <p class="text-sm text-gray-600 italic">
+        D. Vavpotic, <span class="font-bold">S. Bala</span>, J. Mendling, T. Hovelja.
+        <span class="font-bold">Journal of Software: Evolution and Process</span>, 34(4), 2022.
+      </p>
+    </div>
+
+    <div class="publication-item" data-type="journal">
+      <p class="text-xs font-bold uppercase text-primary mb-1">Journal Article (J4)</p>
+      <p class="font-semibold text-lg text-gray-800">
+        Interactive log-delta analysis using multi-range filtering.
+      </p>
+      <p class="text-sm text-gray-600 italic">
+        M. Vidgof, D. Djurica, <span class="font-bold">S. Bala</span>, J. Mendling.
+        <span class="font-bold">Software and Systems Modeling</span>, 21(3), 2022, pp. 847–868.
+      </p>
+    </div>
+
+    <!-- ================= CONFERENCE & WORKSHOP PROCEEDINGS ================= -->
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Conference Proceedings (C1)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Automating Financial Reconciliation: Leveraging RPA for Efficiency and Accuracy in Banking Operations.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    Elheme Azemi, <span class="font-bold">Saimir Bala</span>.
+    <span class="font-bold">Proceedings of the BPM 2025 Industry Forum</span>,
+    Program Contribution, 2025.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Conference Proceedings (C2)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Analyzing Side-Tracking of Developers Using Object-Centric Process Mining.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    <span class="font-bold">Saimir Bala</span>, Thanh Nguyen, Jan Mendling.
+    <span class="font-bold">Model-Based Software and Systems Engineering</span>,
+    CCIS 2547, Springer, 2025.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Workshop Paper (C3)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Predicting File Completion Using Time Series Models: Embracing the Life-Cycle Nature of Software Development.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    Nastasja Stephanie Parschew, <span class="font-bold">Saimir Bala</span>.
+    <span class="font-bold">AI4BPM @ BPM</span>, to appear,
+    Seville, Spain, Aug. 2025.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Conference Proceedings (C4)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    FairPM: A Taxonomy of Bias and Interventions in Process Mining.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    Kate Revoredo, <span class="font-bold">Saimir Bala</span>, Flavia Santoro.
+    <span class="font-bold">Business Process Management Forum</span>,
+    Springer Nature Switzerland, 2025, pp. 395–412.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Workshop Paper (C6)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Spotting the Weasel at Work: Mining Inappropriate Behavior Patterns in Event Logs.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    <span class="font-bold">Saimir Bala</span>, Tim Jacobowitz, Jan Mendling.
+    <span class="font-bold">EDOC Workshops</span>,
+    LNBIP 537, Springer, 2024, pp. 36–52.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Workshop Paper (C7)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    ChatGPT for Tailoring Software Documentation for Managers and Developers.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    <span class="font-bold">Saimir Bala</span>, Kristina Sahling, Jennifer Haase, Jan Mendling.
+    <span class="font-bold">XP Workshops</span>,
+    LNBIP 524, Springer, 2024, pp. 103–109.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Workshop Paper (C5)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    A Classification of Data Quality Issues in Object-Centric Event Data.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    Maike Basmer, Martin Kabierski, Kristina Sahling, Agnieszka Patecka,
+    <span class="font-bold">Saimir Bala</span>, Jan Mendling.
+    <span class="font-bold">ICPM Workshops</span>,
+    LNBIP 533, Springer, 2024, pp. 311–323.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Workshop Paper (C8)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Unraveling the Never-Ending Story of Lifecycles and Vitalizing Processes.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    Stephan A. Fahrenkrog-Petersen, <span class="font-bold">Saimir Bala</span>,
+    Luise Pufahl, Jan Mendling.
+    <span class="font-bold">EDOC Workshops</span>,
+    LNBIP 537, Springer, 2024, pp. 68–81.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Workshop Paper (C9)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Towards Nudging in BPM: A Human-Centric Approach for Sustainable Business Processes.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    Cielo González Moyano, Finn Klessascheck, <span class="font-bold">Saimir Bala</span>,
+    Stephan A. Fahrenkrog-Petersen, Jan Mendling.
+    <span class="font-bold">ICPM Workshops</span>,
+    LNBIP 533, Springer, 2024, pp. 738–750.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Conference Proceedings (C10)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Multi-Dimensional Process Analysis of Software Development Projects.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    Thanh Nguyen, <span class="font-bold">Saimir Bala</span>, Jan Mendling.
+    <span class="font-bold">MODELSWARD</span>,
+    SCITEPRESS, 2024, pp. 179–186.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Forum Paper (C11)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Project-Based Learning in BPM: Lessons from Flipped Classroom vs. Lecture-Based Instruction.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    Kate Revoredo, <span class="font-bold">Saimir Bala</span>.
+    <span class="font-bold">BPM (Blockchain and RPA Forum)</span>,
+    LNBIP 527, Springer, 2024, pp. 313–323.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Workshop Paper (C12)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Process Mining for Analyzing Open Questions Computer-Aided Examinations.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    <span class="font-bold">Saimir Bala</span>, Kate Revoredo, Jan Mendling.
+    <span class="font-bold">ICPM Workshops</span>,
+    LNBIP 468, Springer, 2022, pp. 565–576.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Forum Paper (C13)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Discovering Activities in Software Development Processes.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    <span class="font-bold">Saimir Bala</span>, Paul Kneringer, Jan Mendling.
+    <span class="font-bold">PoEM (Forum)</span>,
+    CEUR-WS Vol. 2793, 2020, pp. 54–63.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Conference Proceedings (C14)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Cherry-Picking from Spaghetti: Multi-range Filtering of Event Logs.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    Maxim Vidgof, Djordje Djurica, <span class="font-bold">Saimir Bala</span>, Jan Mendling.
+    <span class="font-bold">BPMDS/EMMSAD @ CAiSE</span>,
+    LNBIP 387, Springer, 2020, pp. 135–149.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Workshop Paper (C15)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Analysis of Business Process Batching Using Causal Event Models.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    Philipp Waibel, Christian Novak, <span class="font-bold">Saimir Bala</span>,
+    Kate Revoredo, Jan Mendling.
+    <span class="font-bold">ICPM Workshops</span>,
+    LNBIP 406, Springer, 2020, pp. 17–29.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Industry Forum Paper (C16)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Exploring BPM Adoption and Strategic Alignment of Processes at Raiffeisen Bank Kosovo.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    Elheme Azemi, <span class="font-bold">Saimir Bala</span>.
+    <span class="font-bold">BPM Industry Forum</span>,
+    CEUR-WS Vol. 2428, 2019, pp. 37–48.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Conference Proceedings (C17)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Monitoring the Software Development Process with Process Mining.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    <span class="font-bold">Saimir Bala</span>, Jan Mendling.
+    <span class="font-bold">BMSD</span>,
+    LNBIP 319, Springer, 2018, pp. 432–442.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Conference Proceedings (C18)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Case and Activity Identification for Mining Process Models from Middleware.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    <span class="font-bold">Saimir Bala</span>, Jan Mendling, Martin Schimak, Peter Queteschiner.
+    <span class="font-bold">PoEM</span>,
+    LNBIP 335, Springer, 2018, pp. 86–102.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Workshop Paper (C19)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Mining Projects from Structured and Unstructured Data.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    <span class="font-bold">Saimir Bala</span>.
+    <span class="font-bold">RADAR+EMISA @ CAiSE</span>,
+    CEUR-WS Vol. 1859, 2017, pp. 133–137.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Conference Proceedings (C20)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Uncovering the Hidden Co-evolution in the Work History of Software Projects.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    <span class="font-bold">Saimir Bala</span>, Kate Revoredo,
+    João Carlos A. R. Gonçalves, Fernanda Baião,
+    Jan Mendling, Flávia Maria Santoro.
+    <span class="font-bold">BPM</span>,
+    LNCS 10445, Springer, 2017, pp. 164–180.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Workshop Paper (C21)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Resource Classification from Version Control System Logs.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    Kushal Agrawal, Michael Aschauer, Thomas Thonhofer,
+    <span class="font-bold">Saimir Bala</span>, Andreas Rogge-Solti, Nico Tomsich.
+    <span class="font-bold">EDOC Workshops</span>,
+    IEEE Computer Society, 2016, pp. 1–10.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Demo Paper (C22)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    SHAPEworks: A BPMS Extension for Complex Process Management.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    <span class="font-bold">Saimir Bala</span>, Giray Havur, Simon Sperl, Simon Steyskal,
+    Alois Haselböck, Jan Mendling, Axel Polleres.
+    <span class="font-bold">BPM (Demos)</span>,
+    CEUR-WS Vol. 1789, 2016, pp. 50–55.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Revised Selected Papers (C23)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    A Framework for Safety-Critical Process Management in Engineering Projects.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    <span class="font-bold">Saimir Bala</span>, Cristina Cabanillas, Alois Haselböck,
+    Giray Havur, Jan Mendling, Axel Polleres, Simon Sperl, Simon Steyskal.
+    <span class="font-bold">SIMPDA</span>,
+    LNBIP 244, Springer, 2015, pp. 1–27.
+  </p>
+</div>
+
+<div class="publication-item" data-type="conference">
+  <p class="text-xs font-bold uppercase text-primary mb-1">Conference Proceedings (C24)</p>
+  <p class="font-semibold text-lg text-gray-800">
+    Mining Project-Oriented Business Processes.
+  </p>
+  <p class="text-sm text-gray-600 italic">
+    <span class="font-bold">Saimir Bala</span>, Cristina Cabanillas, Jan Mendling,
+    Andreas Rogge-Solti, Axel Polleres.
+    <span class="font-bold">BPM</span>,
+    LNCS 9253, Springer, 2015, pp. 425–440.
+  </p>
+</div>
+
+    <!-- ================= BOOK CHAPTERS ================= -->
+
+    <div class="publication-item" data-type="chapter">
+      <p class="text-xs font-bold uppercase text-primary mb-1">Book Chapter (Ch1)</p>
+      <p class="font-semibold text-lg text-gray-800">
+        Exploring BPM Adoption and Assessing the Strategic Alignment of Processes at Raiffeisen Bank Kosovo.
+      </p>
+      <p class="text-sm text-gray-600 italic">
+        E. Azemi, <span class="font-bold">S. Bala</span>.
+        <span class="font-bold">Business Process Management Cases (2)</span>,
+        Springer, 2021, pp. 277–288.
+      </p>
+    </div>
+
+    <div class="publication-item" data-type="chapter">
+      <p class="text-xs font-bold uppercase text-primary mb-1">Book Chapter (Ch2)</p>
+      <p class="font-semibold text-lg text-gray-800">
+        The Springest Story: How IT Enables Holacratic Organizations.
+      </p>
+      <p class="text-sm text-gray-600 italic">
+        B. Wurm, R. A. Minnaar, J. Mendling, M. Hallmann,
+        <span class="font-bold">S. Bala</span>, W. Kremser, E. Strauss.
+        <span class="font-bold">Digitalization Cases Vol. 2</span>, Springer, 2021, pp. 327–342.
+      </p>
+    </div>
+
+    <div class="publication-item" data-type="chapter">
+      <p class="text-xs font-bold uppercase text-primary mb-1">Book Chapter (Ch3)</p>
+      <p class="font-semibold text-lg text-gray-800">
+        Comprehensive Business Process Management at Siemens: Implementing Business Process Excellence.
+      </p>
+      <p class="text-sm text-gray-600 italic">
+        B. Wolinski, <span class="font-bold">S. Bala</span>.
+        <span class="font-bold">Business Process Management Cases</span>,
+        Springer, 2018, pp. 111–124.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+        <style>
+            .pub-filter-btn {
+            padding: 0.4rem 0.9rem;
+            border-radius: 999px;
+            background: #f1f5f9;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            }
+            .pub-filter-btn:hover {
+            background: #e2e8f0;
+            }
+            .bibtex-btn {
+            margin-top: 0.5rem;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #2563eb;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: color 0.2s;
+            }
+            .bibtex-btn:hover {
+            color: var(--color-primary);
+            }
+        </style>
+
+        <script>
+            /* TOGGLE FULL LIST */
+
+            /* FILTERS handled below with numbering update */
+
+            /* BIBTEX COPY */
+            document.querySelectorAll(".bibtex-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                navigator.clipboard.writeText(btn.dataset.bibtex);
+                btn.textContent = "Copied!";
+                setTimeout(() => btn.textContent = "BibTeX", 1500);
+            });
+            });
+
+            /* Convert parenthesized indices (e.g., (C5), (J2), (Ch1)) into badge spans */
+            document.querySelectorAll('.publication-item > p.text-xs').forEach(p => {
+              const m = p.textContent.match(/\(([^)]+)\)/);
+              if (m) {
+                // replace the parenthesized token with a styled span (remove parentheses)
+                p.innerHTML = p.innerHTML.replace(/\s*\(([^)]+)\)/, ' <span class="pub-index">$1</span>');
+              }
+            });
+
+            // Add per-item dynamic numbering inside each visible publication box
+            function updatePublicationNumbers(containerSelector) {
+              const container = document.querySelector(containerSelector);
+              if (!container) return;
+              const allItems = Array.from(container.querySelectorAll('.publication-item'));
+              const visibleItems = allItems.filter(it => {
+                return it.style.display !== 'none' && getComputedStyle(it).display !== 'none';
+              });
+
+              visibleItems.forEach((it, idx) => {
+                let num = it.querySelector('.pub-number');
+                if (!num) {
+                  num = document.createElement('span');
+                  num.className = 'pub-number';
+                  it.appendChild(num);
+                }
+                num.textContent = (idx + 1).toString();
+              });
+
+              // Remove numbering from non-visible items
+              allItems.forEach(it => {
+                const num = it.querySelector('.pub-number');
+                if (num && !visibleItems.includes(it)) num.remove();
+              });
+            }
+
+            // Hook the numbering to filter and toggle actions
+            document.querySelectorAll(".pub-filter-btn").forEach(btn => {
+              btn.addEventListener("click", () => {
+                const filter = btn.dataset.filter;
+                document.querySelectorAll("#full-publications .publication-item").forEach(item => {
+                  item.style.display =
+                    filter === "all" || item.dataset.type === filter ? "block" : "none";
+                });
+                updatePublicationNumbers('#full-publications');
+              });
+            });
+
+            document.getElementById("toggle-publications").addEventListener("click", function (e) {
+              e.preventDefault();
+              const section = document.getElementById("full-publications");
+              section.classList.toggle("hidden");
+              setTimeout(() => {
+                section.scrollIntoView({ behavior: "smooth" });
+                updatePublicationNumbers('#full-publications');
+              }, 120);
+            });
+
+            // Initial numbering for full list only; remove any numbers from Selected
+            document.querySelectorAll('#publications .pub-number').forEach(n => n.remove());
+            updatePublicationNumbers('#full-publications');
+        </script>
 
         <!-- 5. CONTACT SECTION -->
         <section id="contact" class="py-12 text-white rounded-xl shadow-2xl p-8" style="background-color: rgba(10,61,98,0.9);">
@@ -269,14 +825,25 @@
                 </div>
                 
                 <div>
-                    <h3 class="font-semibold text-xl mb-3 flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-3" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2C17 2 13 6 13 11c0 5 4 9 8.5 9s8.5-4 8.5-9c0-5-4-9-8.5-9z"></path></svg>
-                        Office Address
-                    </h3>
-                    <p>Unter den Linden 6</p>
-                    <p>10099 Berlin, Germany</p>
-                    <p class="mt-2">Visiting Researcher (Weizenbaum & SAP Signavio)</p>
-                </div>
+                <h3 class="font-semibold text-xl mb-3 flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    class="h-6 w-6 mr-3"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="white"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M21 10c0 6-9 13-9 13S3 16 3 10a9 9 0 1 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                  Office Address
+                </h3>
+
+                <p>Unter den Linden 6</p>
+                <p>10099 Berlin, Germany</p>
+                <p class="mt-2">Visiting Researcher (Weizenbaum &amp; SAP Signavio)</p>
+              </div>
                 
                 <div>
                     <h3 class="font-semibold text-xl mb-3 flex items-center">
@@ -288,13 +855,19 @@
                             HU Berlin Profile
                         </a>
                         <a href="https://github.com/s41m1r" target="_blank" class="flex items-center hover:underline">
-                            GitHub (Add your correct URL)
+                          GitHub
+                          <img src="icons/icons8-github-48.png" alt="GitHub" class="h-5 w-5 mr-2">
+                          <span class="sr-only">GitHub</span>
                         </a>
                         <a href="https://www.linkedin.com/in/saimir-bala-47335263" target="_blank" class="flex items-center hover:underline">
-                            LinkedIn (Add your correct URL)
+                          LinkedIn
+                          <img src="icons/icons8-linkedin-48.png" alt="LinkedIn" class="h-5 w-5 mr-2">
+                          <span class="sr-only">LinkedIn</span>
                         </a>
-                        <a href="https://scholar.google.com/citations?user=ZR0Bo_QAAAAJ&hl=en" target="_blank" class="flex items-center hover:underline">
-                            Google Scholar (Add your correct URL)
+                        <a href="https://scholar.google.com/citations?user=ZR0Bo_QAAAAJ&hl=en" target="_blank" class="flex items-center hover:underline align-middle" aria-label="Google Scholar">
+                          Google Scholar
+                          <img src="icons/icons8-google-scholar-48.png" alt="Google Scholar" class="h-5 w-5 mr-2 align-middle">
+                          <span class="sr-only">Google Scholar</span>
                         </a>
                     </div>
                 </div>
